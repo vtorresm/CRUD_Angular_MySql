@@ -14,7 +14,7 @@ export class GamesService {
   constructor(private http: HttpClient) { }
 
   getGames() {
-    return this.http.get(`${this.API_URI}/`);
+    return this.http.get(`${this.API_URI}/games`);
   }
 
   getGame(id: string) {
@@ -29,7 +29,7 @@ export class GamesService {
     return this.http.post(`${this.API_URI}/games`, game);
   }
 
-  updateGame(id: string, updateGame: Game): Observable<Game> {
+  updateGame(id: string|number, updateGame: Game): Observable<Game> {
     return this.http.put(`${this.API_URI}/games/${id}`, updateGame);
   }
 }
